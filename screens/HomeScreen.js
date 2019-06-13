@@ -9,10 +9,9 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native'
-import * as Brightness from 'expo-brightness'
 
 import { MonoText } from '../components/StyledText'
-import BrightnessIndicator from '../components/BatteryIndicator/component'
+import OrientationIndicator from '../components/OrientationIndicator'
 
 const HomeScreen = () => {
     const [local, setLocal] = useState(0.5)
@@ -49,11 +48,7 @@ const HomeScreen = () => {
                 </View>
 
                 <View style={styles.helpContainer}>
-                    <Button title='increase' onPress={() => setLocal(Math.max(1, local + 0.05))} />
-                    <Button title='decrease' onPress={() => setLocal(Math.min(0, local - 0.05))} />
-                    <Text>{local}</Text>
-                    <Button title='set' onPress={() => Brightness.setBrightnessAsync(local)} />
-                    <BrightnessIndicator />
+                    <OrientationIndicator />
                 </View>
             </ScrollView>
 
